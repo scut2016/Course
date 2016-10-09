@@ -28,8 +28,7 @@ final class Single
     {
         if(self::$db==null)
             self::$db=new self();
-        else
-            return self::$db;
+        return self::$db;
     }
     //第三步  防止外部克隆
     private function __clone()
