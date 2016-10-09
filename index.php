@@ -9,3 +9,5 @@ define('APP',__DIR__);
 include "Core/Loader.php";
 spl_autoload_register('\Core\Loader::autoload');
 $db=Core\Single::getDb();
+$user=Factory\UserFactory::createUser('zhansan',2);
+var_dump($user);
