@@ -15,6 +15,9 @@ class Register
     }
     static function get($alias)
     {
-        return self::$_object[$alias];
+        if(isset(self::$_object[$alias]))
+            return self::$_object[$alias];
+        else
+            return null;
     }
 }
