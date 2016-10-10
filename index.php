@@ -13,6 +13,34 @@ $user=Factory\UserFactory::createUser('zhansan',2);
 $db=\Core\Factory::createDb();
 $db2=\Core\Register::get('mysql');
 $db1=\Core\Register::get('mysql');
-echo "<pre>";
-var_dump($db1);
-echo "</pre>";
+//echo "<pre>";
+//var_dump($db1);
+//echo "</pre>";
+class Cate{
+    protected $_strategy=null;
+    function index()
+    {
+        $this->_strategy->showAd();
+        $this->_strategy->showCategory();
+    }
+    function setStrategy(\Core\IUserStrategy $strategy)
+    {
+        $this->_strategy=$strategy;
+    }
+}
+$c=new Cate;
+if($_GET['female'])
+{
+    echo "female<br>";
+    $strategy=new \Core\FemaleStrategy();
+}
+elseif($_GET['male'])
+{
+    echo "Male<br>";
+    $strategy=new \Core\MaleStrategy();
+}
+$c->setStrategy($strategy);
+$c->index();
+
+
+
