@@ -96,5 +96,9 @@ $student->stu_name='赵敏';
 $student->save();
 
 $student=\Core\Register::get(2);
-echo $student->stu_name;
+echo $student->stu_name."<br>";
+
+$config=new \Core\Config(APP.'/configs');
+var_dump($config);
+var_dump($config['controller']);
 
