@@ -98,7 +98,12 @@ $student->save();
 $student=\Core\Register::get(2);
 echo $student->stu_name."<br>";
 
-$config=new \Core\Config(APP.'/configs');
-var_dump($config);
-var_dump($config['controller']);
+//$config=new \Core\Config(APP.'/configs');
+//var_dump($config);
+//var_dump($config['controller']);
+$cf=new \Core\Factory();
+$config=$cf->getConfig();
+echo "<pre>";
+var_dump($config['db']);
+echo "</pre>";
 

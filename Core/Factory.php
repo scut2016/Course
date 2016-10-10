@@ -12,9 +12,11 @@ use DataMap\Student;
 
 class Factory
 {
+    protected $config=[];
     static function createDb()
     {
-        $db=MySQLi::getDb();
+        $config=new Config(APP.'/configs');
+        $db=MySQLi::getDb($config);
         Register::set('mysql',$db);
         return $db;
     }
@@ -28,5 +30,11 @@ class Factory
             Register::set($id,$student);
         }
         return $student;
+    }
+    
+    public function getConfig()
+    {
+        $this->config=new Config(APP.'/configs');
+        return $this->config;
     }
 }

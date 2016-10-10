@@ -11,14 +11,15 @@ final class MySQLi
     private static $db=null;
     private $conn;
     //第一步 构造函数私有
-    private function __construct()
+    private function __construct($config=array())
     {
-       $this->conn=new \mysqli('127.0.0.1','root','root','train');
+        $config=$config['master'];
+       $this->conn=new \mysqli($config['hostname'],$config['username'],$config['password'],$config['dbName']);
 
         if($this->conn->connect_errno)
             die( '连接数据库失败'.$this->conn->connect_error);
         else
-            $this->conn->set_charset('utf8');
+            $this->conn->set_charset($config['charset']);
     }
     //第二步 外部调用的静态方法
     static function getDb()

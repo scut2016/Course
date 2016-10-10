@@ -17,6 +17,7 @@ class Config implements \ArrayAccess
 
     public function offsetExists($offset)
     {
+        return isset($this->configs[$offset]);
 
     }
 //自动执行的代码 
@@ -25,7 +26,6 @@ class Config implements \ArrayAccess
         if(empty($this->configs[$offset]))
         {
             $filePath=$this->path.'/'.$offset.'.php';
-            echo $filePath;
             $config=require($filePath);
             $this->configs[$offset]=$config;
         }
@@ -39,7 +39,7 @@ class Config implements \ArrayAccess
 
     public function offsetUnset($offset)
     {
-        // TODO: Implement offsetUnset() method.
+        unset($this->configs[$offset]);
     }
 
 }
