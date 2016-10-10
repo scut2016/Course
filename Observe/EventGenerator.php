@@ -2,7 +2,7 @@
 
 namespace Observe;
 
-abstract class EventGenertor
+abstract class EventGenerator
 {
     private $_observers=[];
     function addObserver(IObserve $observe)

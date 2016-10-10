@@ -42,7 +42,7 @@ elseif($_GET['male'])
 $c->setStrategy($strategy);
 $c->index();
 
-class Event extends \Observe\EventGenertor
+class Event extends \Observe\EventGenerator
 {
     function trigger()
     {
