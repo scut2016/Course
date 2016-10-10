@@ -12,7 +12,7 @@ class Factory
 {
     static function createDb()
     {
-        $db=Single::getDb();
+        $db=MySQLi::getDb();
         return $db;
 
     }
