@@ -91,4 +91,10 @@ $coffee->addDecorator($sugar);
 $coffee->addDecorator($butter);
 echo '<br>'.$coffee->coffeeName().$coffee->total().'<br>';
 
+$student=\Core\Factory::getStudent(2);
+$student->stu_name='赵敏';
+$student->save();
+
+$student=\Core\Register::get(2);
+echo $student->stu_name;
 
