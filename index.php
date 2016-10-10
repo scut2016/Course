@@ -42,5 +42,40 @@ elseif($_GET['male'])
 $c->setStrategy($strategy);
 $c->index();
 
+class Event extends \Observe\EventGenertor
+{
+    function trigger()
+    {
+        $this->notify();
+    }
+}
+class Observer1 implements \Observe\IObserve
+{
+    function update($event = null)
+    {
+        echo "get money<br>";
+    }
+
+}
+class Observer2 implements \Observe\IObserve
+{
+    function update($event = null)
+    {
+        echo "get water<br>";
+    }
+}
+class Observer3 implements \Observe\IObserve
+{
+    function update($event = null)
+    {
+        echo "get food<br>";
+    }
+}
+$e=new Event();
+$e->addObserver(new Observer1());
+$e->addObserver(new Observer2());
+$e->addObserver(new Observer3());
+$e->trigger();
+
 
 
