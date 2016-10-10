@@ -76,6 +76,19 @@ $e->addObserver(new Observer1());
 $e->addObserver(new Observer2());
 $e->addObserver(new Observer3());
 $e->trigger();
+//beverage 饮料
+//    Coffee 咖啡 
+//    Condiment 调味品
+//              Sugar 糖 Butter 黄油 Milk 牛奶
 
+$coffee=new \Decorator\Coffee();
+$milk=new \Decorator\Milk();
+$sugar=new \Decorator\Sugar();
+$butter=new \Decorator\Butter();
+echo $milk->cost().'<br>';
+$coffee->addDecorator($milk);
+$coffee->addDecorator($sugar);
+$coffee->addDecorator($butter);
+echo '<br>'.$coffee->coffeeName().$coffee->total().'<br>';
 
 
