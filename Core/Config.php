@@ -3,9 +3,7 @@
  * 文件名：Config.php
   项目配置类
  */
-
 namespace Core;
-
 class Config implements \ArrayAccess
 {
     protected $path;
@@ -32,15 +30,15 @@ class Config implements \ArrayAccess
         }
         return $this->configs[$offset];
     }
-
+//设置值执行
     public function offsetSet($offset, $value)
     {
         $this->configs[$offset]=$value;
     }
-
+//unset
     public function offsetUnset($offset)
     {
         unset($this->configs[$offset]);
     }
-
 }
+

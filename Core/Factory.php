@@ -20,7 +20,6 @@ class Factory
             $config=$slaves[array_rand($slaves)];
         }
         $db=MySQLi::getDb($config);
-        dd($db);
         Register::set('mysql',$db);
         return $db;
     }
