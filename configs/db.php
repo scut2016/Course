@@ -2,7 +2,7 @@
 $config= [
     'master'=>[
                 'type'      =>  'mysql',
-                'hostname'  =>  '127.0.0.1',
+                'hostname'  =>  'localhost',
                 'username'  =>  'root',
                 'password'  =>  'root',
                 'dbName'    =>  'train',
@@ -10,6 +10,15 @@ $config= [
               ],
     'slave'=>[
                 'slave1'=> 
+                [
+                    'type'      =>  'mysql',
+                    'hostname'  =>  '127.0.0.1',
+                    'username'  =>  'root',
+                    'password'  =>  'root',
+                    'dbName'    =>  'train',
+                    'charset'   =>  'utf8',
+                ],
+             'slave2'=>
                 [
                     'type'      =>  'mysql',
                     'hostname'  =>  '127.0.0.1',

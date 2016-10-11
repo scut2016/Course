@@ -12,6 +12,7 @@ class Config implements \ArrayAccess
     protected $configs=[];//保存配置的数组
     public function __construct($path)
     {
+        $path=str_replace('\\','/',$path);
         $this->path=$path;
     }
 
