@@ -138,14 +138,18 @@ var_dump($config['db']);
 echo "</pre>";
 */
 //$config=\Core\Factory::createDb('slave');
-$all=new \Core\AllStudent();
-foreach ($all as $key=>$student)
-{
-    dd($student->stu_name);
-    if($key==1)
-    {
-        $student->stu_name='张翠山';
-        $student->save();
-    }
+//$all=new \Core\AllStudent();
+//foreach ($all as $key=>$student)
+//{
+//    dd($student->stu_name);
+//    if($key==1)
+//    {
+//        $student->stu_name='张翠山';
+//        $student->save();
+//    }
+//
+//}
+$proxy=new \Core\Proxy();
+$t=$proxy->getStudentName(2);
+$proxy->setStudentName(2,"赵敏");
 
-}

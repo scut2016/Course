@@ -30,7 +30,8 @@ class AllStudent implements \Iterator
 
     public function valid()
     {
-        return $this->index<count($this->ids);
+//        return $this->index<count($this->ids);
+        return isset($this->ids[$this->index]);
     }
 
     public function rewind()
