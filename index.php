@@ -151,5 +151,6 @@ echo "</pre>";
 //}
 $proxy=new \Core\Proxy();
 $t=$proxy->getStudentName(2);
-$proxy->setStudentName(2,"赵敏");
+dd($t);
+$proxy->setStudentName(2,"赵敏111");
 

@@ -13,12 +13,15 @@ class Factory
     {
         $configs=new Config(APP.'/configs');
         if($type=='master')
-             $config=$configs['db'][$type];
+        {
+            $config=$configs['db'][$type];
+        }
         else
         {
             $slaves=$configs['db']['slave'];
             $config=$slaves[array_rand($slaves)];
         }
+        dd($config);
         $db=MySQLi::getDb($config);
         Register::set('mysql',$db);
         return $db;
